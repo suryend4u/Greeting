@@ -1,4 +1,4 @@
-import app.Person
+import app.{Car, GreeterApplication, Person}
 import org.scalatest.WordSpec
 
 class GreeterApplicationTest extends WordSpec {
@@ -21,5 +21,20 @@ class GreeterApplicationTest extends WordSpec {
     }
 
   }
-  
+
+
+  "Greeter App" when {
+    "Called" should {
+      "Return name for app" in {
+        assert(GreeterApplication.appName.equals("TestApp"))
+      }
+    }
+    "matchPrice" should {
+      "return 2000 for Maruti" in {
+        assert(GreeterApplication.matchPrice(new Car(1000, "Maruti")).equals(2000))
+      }
+    }
+  }
+
+
 }
